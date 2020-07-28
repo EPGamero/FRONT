@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/ML" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/ML.Entities" />
+      <xs:element name="GetProductos">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProductosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetProductosResult" nillable="true" type="q1:ProductoResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddCliente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="cliente" nillable="true" type="q2:Cliente" />
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="productos" nillable="true" type="q3:ArrayOfProducto" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="AddClienteResult" nillable="true" type="q4:ClienteResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddPedido">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ClienteId" type="xs:int" />
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="pedido" nillable="true" type="q5:Pedido" />
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="productos" nillable="true" type="q6:ArrayOfProducto" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddPedidoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="AddPedidoResult" nillable="true" type="q7:PedidoResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddPedidoDetalle">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="PedidoId" type="xs:int" />
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="producto" nillable="true" type="q8:Producto" />
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="pedidoDetalle" nillable="true" type="q9:PedidoDetalle" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddPedidoDetalleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="AddPedidoDetalleResult" nillable="true" type="q10:PedidoDetalleResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPedidoById">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ML.Entities" minOccurs="0" name="consulta" nillable="true" type="q11:ConsultaPedido" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPedidoByIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetPedidoByIdResult" nillable="true" type="q12:ConsultaPedidoResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeletePedidoById">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="pedido" nillable="true" type="q13:Pedido" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeletePedidoByIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="DeletePedidoByIdResult" nillable="true" type="q14:PedidoResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeletePedidoDetalleById">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="pedidoDetalle" nillable="true" type="q15:PedidoDetalle" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeletePedidoDetalleByIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="DeletePedidoDetalleByIdResult" nillable="true" type="q16:PedidoDetalleResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/ML" />
+      <xs:complexType name="ProductoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="ListaProductos" nillable="true" type="q1:ArrayOfProducto" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ProductoResponse" nillable="true" type="tns:ProductoResponse" />
+      <xs:complexType name="ClienteResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="ListaClientes" nillable="true" type="q2:ArrayOfCliente" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ClienteResponse" nillable="true" type="tns:ClienteResponse" />
+      <xs:complexType name="PedidoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="ListaPedidos" nillable="true" type="q3:ArrayOfPedido" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PedidoResponse" nillable="true" type="tns:PedidoResponse" />
+      <xs:complexType name="PedidoDetalleResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="ListaPedidoDetalle" nillable="true" type="q4:ArrayOfPedidoDetalle" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PedidoDetalleResponse" nillable="true" type="tns:PedidoDetalleResponse" />
+      <xs:complexType name="ConsultaPedidoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="ListaPedido" nillable="true" type="q5:ArrayOfPedido" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="ListaPedidoDetalle" nillable="true" type="q6:ArrayOfPedidoDetalle" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ConsultaPedidoResponse" nillable="true" type="tns:ConsultaPedidoResponse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ML" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ML" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfProducto">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Producto" nillable="true" type="tns:Producto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfProducto" nillable="true" type="tns:ArrayOfProducto" />
+      <xs:complexType name="Producto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Precio" type="xs:double" />
+          <xs:element minOccurs="0" name="SKU" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Producto" nillable="true" type="tns:Producto" />
+      <xs:complexType name="Cliente">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AMaterno" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="APaterno" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClienteId" type="xs:int" />
+          <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
+      <xs:complexType name="ArrayOfCliente">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Cliente" nillable="true" type="tns:Cliente" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCliente" nillable="true" type="tns:ArrayOfCliente" />
+      <xs:complexType name="Pedido">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cliente" nillable="true" type="tns:Cliente" />
+          <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MontoPedido" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PedidoId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Pedido" nillable="true" type="tns:Pedido" />
+      <xs:complexType name="ArrayOfPedido">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Pedido" nillable="true" type="tns:Pedido" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPedido" nillable="true" type="tns:ArrayOfPedido" />
+      <xs:complexType name="PedidoDetalle">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cantidad" type="xs:int" />
+          <xs:element minOccurs="0" name="Pedido" nillable="true" type="tns:Pedido" />
+          <xs:element minOccurs="0" name="Producto" nillable="true" type="tns:Producto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PedidoDetalle" nillable="true" type="tns:PedidoDetalle" />
+      <xs:complexType name="ArrayOfPedidoDetalle">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PedidoDetalle" nillable="true" type="tns:PedidoDetalle" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPedidoDetalle" nillable="true" type="tns:ArrayOfPedidoDetalle" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ML.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ML.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/ML" />
+      <xs:complexType name="ConsultaPedido">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="Pedido" nillable="true" type="q1:Pedido" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ML" minOccurs="0" name="PedidoDetalle" nillable="true" type="q2:PedidoDetalle" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ConsultaPedido" nillable="true" type="tns:ConsultaPedido" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_GetProductos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductos" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetProductos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCliente" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddPedido_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPedido" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddPedido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPedidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddPedidoDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPedidoDetalle" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddPedidoDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPedidoDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPedidoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPedidoById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPedidoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPedidoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeletePedidoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePedidoById" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeletePedidoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePedidoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeletePedidoDetalleById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePedidoDetalleById" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeletePedidoDetalleById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePedidoDetalleByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="GetProductos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetProductos" message="tns:IService_GetProductos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetProductosResponse" message="tns:IService_GetProductos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddCliente" message="tns:IService_AddCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddClienteResponse" message="tns:IService_AddCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPedido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddPedido" message="tns:IService_AddPedido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddPedidoResponse" message="tns:IService_AddPedido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPedidoDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddPedidoDetalle" message="tns:IService_AddPedidoDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddPedidoDetalleResponse" message="tns:IService_AddPedidoDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPedidoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPedidoById" message="tns:IService_GetPedidoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPedidoByIdResponse" message="tns:IService_GetPedidoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePedidoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeletePedidoById" message="tns:IService_DeletePedidoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeletePedidoByIdResponse" message="tns:IService_DeletePedidoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePedidoDetalleById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeletePedidoDetalleById" message="tns:IService_DeletePedidoDetalleById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeletePedidoDetalleByIdResponse" message="tns:IService_DeletePedidoDetalleById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProductos">
+      <soap:operation soapAction="http://tempuri.org/IService/GetProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCliente">
+      <soap:operation soapAction="http://tempuri.org/IService/AddCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPedido">
+      <soap:operation soapAction="http://tempuri.org/IService/AddPedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPedidoDetalle">
+      <soap:operation soapAction="http://tempuri.org/IService/AddPedidoDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPedidoById">
+      <soap:operation soapAction="http://tempuri.org/IService/GetPedidoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePedidoById">
+      <soap:operation soapAction="http://tempuri.org/IService/DeletePedidoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePedidoDetalleById">
+      <soap:operation soapAction="http://tempuri.org/IService/DeletePedidoDetalleById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://localhost:49834/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
